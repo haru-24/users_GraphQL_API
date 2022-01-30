@@ -1,15 +1,25 @@
 import { ApolloServer } from "apollo-server";
-import { Query } from "./resolvers/Query";
-import { User } from "./resolvers/User";
+import { hello, user, users, posts } from "./resolvers/Query";
+import { myPosts } from "./resolvers/User";
 import { typeDefs } from "./schema";
 import { JsonPlaceHolderAPI } from "./restDataSource/jsonPlaceHolder";
+import { Resolvers } from "./types/graphql";
+
+const resolvers: Resolvers = {
+  Query: {
+    hello,
+    user,
+    users,
+    posts,
+  },
+  User: {
+    myPosts,
+  },
+};
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers: {
-    Query,
-    User,
-  },
+  resolvers,
   dataSources: () => {
     return {
       JsonPlaceHolderAPI: new JsonPlaceHolderAPI(),

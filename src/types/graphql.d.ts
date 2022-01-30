@@ -1,4 +1,5 @@
 import { GraphQLResolveInfo } from 'graphql';
+import { AuthorParent } from './parent';
 import { Context } from './context';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;

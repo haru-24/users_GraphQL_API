@@ -5,12 +5,20 @@ const Query_1 = require("./resolvers/Query");
 const User_1 = require("./resolvers/User");
 const schema_1 = require("./schema");
 const jsonPlaceHolder_1 = require("./restDataSource/jsonPlaceHolder");
+const resolvers = {
+    Query: {
+        hello: Query_1.hello,
+        user: Query_1.user,
+        users: Query_1.users,
+        posts: Query_1.posts,
+    },
+    User: {
+        myPosts: User_1.myPosts,
+    },
+};
 const server = new apollo_server_1.ApolloServer({
     typeDefs: schema_1.typeDefs,
-    resolvers: {
-        Query: Query_1.Query,
-        User: User_1.User,
-    },
+    resolvers,
     dataSources: () => {
         return {
             JsonPlaceHolderAPI: new jsonPlaceHolder_1.JsonPlaceHolderAPI(),

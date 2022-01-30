@@ -5,7 +5,8 @@ generates:
     config:
       useIndexSignature: true
       contextType: ./context#Context
-
+      mappers: # これが重要
+        Author: ./parent#AuthorParent
     plugins:
       - typescript
       - typescript-resolvers
