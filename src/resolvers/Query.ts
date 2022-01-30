@@ -1,7 +1,7 @@
-import { Post, Resolvers } from "../types/graphql";
+import { Resolvers } from "../types/graphql";
 
 // リゾルバー
-export const resolvers: Resolvers = {
+export const Query: Resolvers = {
   Query: {
     hello: (parent, { name }) => {
       return `hello ${name}`;
@@ -14,13 +14,6 @@ export const resolvers: Resolvers = {
     },
     posts: async (parent, args, { dataSources }) => {
       return dataSources.JsonPlaceHolderAPI.getPosts();
-    },
-  },
-  User: {
-    myPosts: async (parent, args, { dataSources }) => {
-      const posts = (await dataSources.JsonPlaceHolderAPI.getPosts()) as Post[];
-      const myPosts = posts.filter((post) => post.userId == parent.id);
-      return myPosts;
     },
   },
 };

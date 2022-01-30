@@ -1,16 +1,15 @@
-import { ApolloServer, gql } from "apollo-server";
-import { resolvers } from "./resolvers/Query";
+import { ApolloServer } from "apollo-server";
+import { Query } from "./resolvers/Query";
+import { User } from "./resolvers/User";
 import { typeDefs } from "./schema";
 import { JsonPlaceHolderAPI } from "./restDataSource/jsonPlaceHolder";
 
-// rest通信
-
-// スキーマ
-
-// サーバーの設定
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers: {
+    Query,
+    User,
+  },
   dataSources: () => {
     return {
       JsonPlaceHolderAPI: new JsonPlaceHolderAPI(),
