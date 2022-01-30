@@ -1,7 +1,5 @@
-import { ApolloServer, gql, GraphQLOptions } from "apollo-server";
-import axios from "axios";
+import { ApolloServer, gql } from "apollo-server";
 import { RESTDataSource } from "apollo-datasource-rest";
-
 import { Post, Resolvers, User } from "./types/graphql";
 
 // rest通信
