@@ -26,3 +26,11 @@ export const updateUser: UserResolvers["user"] = async (
     },
   });
 };
+export const deleteUser: UserResolvers["user"] = async (
+  parent: any,
+  args: any
+) => {
+  return await prisma.user.delete({
+    where: { id: args.id },
+  });
+};

@@ -19,6 +19,7 @@ const resolvers = {
     Mutation: {
         createUser: Mutation_1.createUser,
         updateUser: Mutation_1.updateUser,
+        deleteUser: Mutation_1.deleteUser,
     },
 };
 const server = new apollo_server_1.ApolloServer({

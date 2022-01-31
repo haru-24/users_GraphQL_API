@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUser = exports.createUser = void 0;
+exports.deleteUser = exports.updateUser = exports.createUser = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const createUser = async (parent, args) => {
@@ -23,3 +23,9 @@ const updateUser = async (parent, args) => {
     });
 };
 exports.updateUser = updateUser;
+const deleteUser = async (parent, args) => {
+    return await prisma.user.delete({
+        where: { id: args.id },
+    });
+};
+exports.deleteUser = deleteUser;
