@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const apollo_server_1 = require("apollo-server");
 const Query_1 = require("./resolvers/Query");
 const User_1 = require("./resolvers/User");
+const Mutation_1 = require("./resolvers/Mutation");
 const schema_1 = require("./schema");
 const jsonPlaceHolder_1 = require("./restDataSource/jsonPlaceHolder");
 const resolvers = {
@@ -14,6 +15,10 @@ const resolvers = {
     },
     User: {
         myPosts: User_1.myPosts,
+    },
+    Mutation: {
+        createUser: Mutation_1.createUser,
+        updateUser: Mutation_1.updateUser,
     },
 };
 const server = new apollo_server_1.ApolloServer({

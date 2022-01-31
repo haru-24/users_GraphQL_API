@@ -1,4 +1,4 @@
-import { QueryResolvers, User } from "../types/graphql";
+import { QueryResolvers, User, UserResolvers } from "../types/graphql";
 // prisma
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
@@ -7,7 +7,7 @@ export const hello: QueryResolvers["hello"] = (parent, { name }) => {
   return `hello ${name}`;
 };
 
-export const users = () => {
+export const users: UserResolvers["users"] = () => {
   return prisma.user.findMany();
 };
 

@@ -1,6 +1,7 @@
 import { ApolloServer } from "apollo-server";
 import { hello, user, users, posts } from "./resolvers/Query";
 import { myPosts } from "./resolvers/User";
+import { createUser, updateUser } from "./resolvers/Mutation";
 import { typeDefs } from "./schema";
 import { JsonPlaceHolderAPI } from "./restDataSource/jsonPlaceHolder";
 import { Resolvers } from "./types/graphql";
@@ -14,6 +15,10 @@ const resolvers: Resolvers = {
   },
   User: {
     myPosts,
+  },
+  Mutation: {
+    createUser,
+    updateUser,
   },
 };
 
