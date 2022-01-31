@@ -23,4 +23,8 @@ exports.typeDefs = (0, apollo_server_1.gql) `
     body: String!
     userId: ID!
   }
+
+  type Mutation {
+    createUser(name: String!, email: String!): User
+  }
 `;

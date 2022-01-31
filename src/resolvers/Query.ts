@@ -1,15 +1,14 @@
-import { QueryResolvers } from "../types/graphql";
+import { QueryResolvers, User } from "../types/graphql";
+// prisma
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 export const hello: QueryResolvers["hello"] = (parent, { name }) => {
   return `hello ${name}`;
 };
 
-export const users: QueryResolvers["users"] = (
-  parent,
-  args,
-  { dataSources }
-) => {
-  return dataSources.JsonPlaceHolderAPI.getUsers();
+export const users = () => {
+  return prisma.user.findMany();
 };
 
 export const user: QueryResolvers["user"] = (parent, args, { dataSources }) => {
